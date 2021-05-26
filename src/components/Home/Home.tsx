@@ -30,7 +30,9 @@ const HomePage = () => {
                         </div>
                     </div>
                 </Link>
-            </div> :  <div className={'w-100 '} style={{backgroundColor:'#fed53d'}} >
+            </div>
+
+                :  <div className={'w-100 '} style={{backgroundColor:'#fed53d'}} >
                 <NavBar user={user} />
                 <div className={'flex-xl-wrap flex row w-90 p-5 font-weight-bold'} style={{minHeight:'80vh',backgroundColor:'#fed53d',fontSize:40,justifyContent:'center',display:'flex',alignItems:'center'}} >
                     Please Try Again
