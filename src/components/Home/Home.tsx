@@ -14,7 +14,7 @@ const HomePage = () => {
 console.log(photos)
     return (
         <>
-            {photos.length != ? <div className={'w-100 '} style={{backgroundColor:'#fed53d'}} >
+            {!photos.length ?  <div className={'w-100 '} style={{backgroundColor:'#fed53d'}} >
                 <NavBar user={user} />
                 <div className={'flex-xl-wrap flex row w-90'} style={{backgroundColor:'#fed53d'}} >
                     {photos.map((item ) => {return (<Card item={item}/>)})}
