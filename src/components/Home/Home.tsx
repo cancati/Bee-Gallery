@@ -3,12 +3,13 @@ import { useAuth } from "../../contexts/context";
 import Card from "../Card/Card";
 import NavBar from '../Navbar/NavBar'
 import Profiljpg from '../../assets/profile-pic.png'
+import exit from '../../assets/exit.png'
 import './Home.css'
 import {Link, useHistory,} from 'react-router-dom'
 
 
 const HomePage = () => {
-    const {currentUser,photos} = useAuth();
+    const {currentUser,photos,logout} = useAuth();
     const user = currentUser.email;
     const history = useHistory()
 
@@ -27,6 +28,12 @@ const HomePage = () => {
                         <div className={'font-weight-bold ml-3'}>
                             <Link to={'/About'}>About Me ? </Link>
                         </div>
+                    </div>
+
+                    <div id={'Profil'} className={'position-sticky'} style={{width:80,minWidth:80,height:80 ,display:'flex',justifyContent:'center',alignItems:'center',borderRadius:30,backgroundColor:'#fed53d',left: '94%',bottom:20}}>
+                        <Link onClick={() => logout() } to={'/'}> <div  style={{width:70,minWidth:70,height:70 ,borderRadius:50,backgroundColor:'transparent',display:'flex',alignItems:'center',justifyContent:'center',left:20,bottom:40}}>
+                            <img src={exit} style={{width:32 ,height:32}} />
+                        </div> </Link>
                     </div>
             </div>
 

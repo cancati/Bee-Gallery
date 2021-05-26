@@ -48,7 +48,6 @@ const NavBar:React.FunctionComponent<props> = (user:any) => {
                 <div style={{display:'flex',flexDirection:'column',borderRadius:scrollY <= 50 ? 0 : 30 ,transition: scrollY <= 50 ? '1s' : '1s',justifyContent:'center',alignItems:'center',height:'100%'}}>
                     <img src={User} style={{width:32,height:32}}/>
                     {scrollY <= 50 ?   <div style={{fontSize:15 ,color:'black'}}>{currentUser.email.split('@')[0]}</div> : null }
-
                 </div>
             </Link>
         </div>
