@@ -11,10 +11,11 @@ const HomePage = () => {
     const {currentUser,photos} = useAuth();
     const user = currentUser.email;
     const history = useHistory()
-console.log(photos)
+
+    console.log(photos.length)
     return (
         <>
-            {!photos.length ?  <div className={'w-100 '} style={{backgroundColor:'#fed53d'}} >
+            {photos.length != 0 ?  <div className={'w-100 '} style={{backgroundColor:'#fed53d'}} >
                 <NavBar user={user} />
                 <div className={'flex-xl-wrap flex row w-90'} style={{backgroundColor:'#fed53d'}} >
                     {photos.map((item ) => {return (<Card item={item}/>)})}
