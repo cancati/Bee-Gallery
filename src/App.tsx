@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SignUp from './components/SignUp/SignUp';
+import Login from "./components/Login/Login";
+import HomePage from "./components/Home/Home";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory
+} from "react-router-dom";
+import {AuthProvider} from "../src/contexts/context"
+import PrivateRoute from "./components/PrivateRoute";
+import AboutMe from "../src/components/AboutMe/AboutMe";
+import "react-bootstrap/dist/react-bootstrap.min"
 
-function App() {
+const App = () => {
+  const history = useHistory();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <AuthProvider>
+        <div>
+          <Router>
+            <Switch>
+              <PrivateRoute path={'/HomePage'} exact component={HomePage} />
+              <PrivateRoute path={'/About'} exact component={AboutMe} />
+              <Route path='/' exact component={Login} />
+              <Route path='/Login' exact component={Login} />
+              <Route path='/SignUp' exact component={SignUp} />
+            </Switch>
+          </Router>
+        </div>
+      </AuthProvider>
   );
-}
+};
 
 export default App;
