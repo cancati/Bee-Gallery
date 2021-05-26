@@ -39,7 +39,7 @@ const NavBar:React.FunctionComponent<props> = (user:any) => {
             </Link>
             <div style={{width:'60%',display:'flex',justifyContent:'space-between',borderRadius:scrollY <= 50 ? 0 : 30 ,transition: scrollY <= 50 ? '1s' : '1s',alignItems:'center',height:'100%'}}>
                 <Link onClick={() => categoryChange('flower')} style={{width:'33%',display:'flex',justifyContent:'center',}} to={'/HomePage'} ><div style={{width:'33%',display:'flex',justifyContent:'center',}}><div><img src={Flower} style={{width:32,height:32}}/></div></div></Link>
-                <Link onClick={() => categoryChange('cy')} style={{width:'33%',display:'flex',justifyContent:'center',}} to={'/HomePage'}  > <div style={{width:'33%',display:'flex',justifyContent:'center',}}><div><img src={City} style={{width:32,height:32}}/></div></div></Link>
+                <Link onClick={() => categoryChange('city')} style={{width:'33%',display:'flex',justifyContent:'center',}} to={'/HomePage'}  > <div style={{width:'33%',display:'flex',justifyContent:'center',}}><div><img src={City} style={{width:32,height:32}}/></div></div></Link>
                 <Link onClick={() => categoryChange('nature')} style={{width:'33%',display:'flex',justifyContent:'center',}} to={'/HomePage'}> <div style={{width:'33%',display:'flex',justifyContent:'center',}}><div><img src={Nature} style={{width:32,height:32}}/></div></div></Link>
             </div>
             <Link id={'Link'} to={'/About'} style={{minWidth:'10%',color:'#BBBBBB' , display:'flex' ,justifyContent:'flex-end',paddingRight:20,}} >
