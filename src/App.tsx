@@ -20,8 +20,8 @@ const App = () => {
         <div>
           <Router>
             <Switch>
-              <PrivateRoute path={'/HomePage'} component={HomePage} />
-              <PrivateRoute path={'/About'}  component={AboutMe} />
+              <PrivateRoute path={'/HomePage'} exact component={HomePage} />
+              <PrivateRoute path={'/About'} exact  component={AboutMe} />
               <Route path='/' exact component={Login} />
               <Route path='/Login' exact component={Login} />
               <Route path='/SignUp' exact component={SignUp} />
