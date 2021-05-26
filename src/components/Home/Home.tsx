@@ -11,7 +11,7 @@ const HomePage = () => {
     const {currentUser,photos} = useAuth();
     const user = currentUser.email;
     const history = useHistory()
-
+console.log(photos)
     return (
         <>
             {photos ? <div className={'w-100 '} style={{backgroundColor:'#fed53d'}} >
