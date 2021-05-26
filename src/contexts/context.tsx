@@ -4,6 +4,8 @@ import app from '../firebase';
 type authContextType = {
     category: string;
     photos: string[];
+    widthSize:number;
+    scrollHeight:number;
     currentUser:any;
     login: (email:string,password:string) => void;
     logout: () => void;
@@ -14,6 +16,8 @@ type authContextType = {
 const authContextDefaultValues: authContextType = {
     category: '',
     photos:[],
+    widthSize:0,
+    scrollHeight:0,
     currentUser:null,
     login: (email:string,password:string) => {},
     logout: () => {},
@@ -37,6 +41,10 @@ export function AuthProvider({ children }: Props) {
     const [category, setCategory] = useState<string>('city');
     const [currentUser, setCurrentUser] = useState<any>(null);
     const [photos, setPhotos] = useState<string[]>([]);
+    const [widthSize, setWidthSize] = useState(window.innerWidth);
+    const [scrollHeight, setScrollHeight] = useState<any>(0);
+
+
 
     useEffect(() => {
         fetch(`https://api.pexels.com/v1/search?query=${category}&per_page=80`,{
@@ -77,12 +85,34 @@ export function AuthProvider({ children }: Props) {
         return  auth.signOut()
     };
 
+    const updateWidth = () => {
+        setWidthSize(window.innerWidth);
+    };
+
+    useEffect(() => {
+        window.addEventListener("resize", updateWidth);
+        return () => window.removeEventListener("resize", updateWidth);
+    });
+
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
-            // ts error here
             setCurrentUser(user);
         });
     }, []);
+
+    function getScrollHeight() {
+        setScrollHeight(window.pageYOffset);
+    }
+
+    useEffect(() => {
+        function watchScroll() {
+            window.addEventListener("scroll", getScrollHeight);
+        }
+        watchScroll();
+        return () => {
+            window.removeEventListener("scroll", getScrollHeight);
+        };
+    },[scrollHeight]);
 
 
     const categoryChange = (changeName:string) =>  {
@@ -91,6 +121,8 @@ export function AuthProvider({ children }: Props) {
 
     const value = {
         category,
+        widthSize,
+        scrollHeight,
         photos,
         currentUser,
         categoryChange,

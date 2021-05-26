@@ -6,20 +6,23 @@ import Behance from '../../assets/behance.png';
 import Linkedin from '../../assets/linkedin.png';
 import Git from '../../assets/github.png';
 import {Link,} from 'react-router-dom'
+import {useAuth} from "../../contexts/context";
 
 const AboutMePage = () => {
+    const {widthSize} = useAuth()
+
     return (
         <div className={'w-100'} style={{backgroundImage:`url(${background})`,backgroundSize:'cover'}}>
             <Container
                 className="w-100 d-flex flex-column align-items-center justify-content-center"
                 style={{ minHeight: "100vh", }}>
-                <div className={'w-75'} style={{display:'flex',backgroundColor:'#f1a167',padding:20,justifyContent:'space-between',borderRadius:20,}}>
-                    <div className={"w-100"} style={{ maxWidth: "400px",backgroundColor:'#fed53d',backgroundSize:'cover' ,borderRadius:20,marginRight:20 ,display:'flex',justifyContent:'center',alignItems:'center'}}>
-                        <div style={{width:'50%',height:'50%',borderRadius:'100%',backgroundColor:'#fed53d',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                            <img src={Photo} style={{width:250,height:350,marginBottom:50}} />
+                <div className={'w-75'} style={{display:'flex',backgroundColor:'#f1a167',padding:20,flexDirection:widthSize <= 1000 ? 'column' : 'row',justifyContent:'space-between',alignContent:'space-between',borderRadius:20,}}>
+                    <div className={"w-100"} style={{ maxWidth: "500px",minHeight:100,backgroundColor:'#fed53d',backgroundSize:'cover' ,borderRadius:20,marginRight:20 ,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                        <div style={{width:widthSize<=1000?'30' : '50%',height:widthSize<=1000?'30' : '50%',borderRadius:'100%',backgroundColor:'#fed53d',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                            <img src={Photo} style={{width:widthSize <= 1000 ? 80 :  250,height:widthSize <= 1000 ? 140 :  350,marginBottom:50}} />
                         </div>
                     </div>
-                    <div className={"w-100"} style={{ maxWidth: 400,minWidth:200 }}>
+                    <div className={"w-100"} style={{ maxWidth: 500,minWidth:200 }}>
                         <Card style={{borderRadius:20,padding:20,borderWidth:3,borderColor:'#f1a167'}}>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum ex sit amet egestas blandit. Aliquam diam quam, varius sit amet vehicula vitae, ornare vitae elit. Phasellus dapibus, tortor at pharetra placerat, tellus ante tincidunt tortor, sed ullamcorper velit nibh in lectus. Duis lobortis accumsan arcu ut eleifend. Nulla id condimentum nunc, quis mollis turpis. Suspendisse maximus sapien eget purus placerat scelerisque. Maecenas mollis venenatis elit at tincidunt.

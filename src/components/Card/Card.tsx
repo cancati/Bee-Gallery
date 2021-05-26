@@ -8,7 +8,6 @@ interface props {
 }
 const Card:React.FunctionComponent<props> = (item:any) => {
     const [like,setLike] = useState<boolean>(false)
-    console.log(item.item.photographer)
     return(
         <>
 
@@ -24,8 +23,6 @@ const Card:React.FunctionComponent<props> = (item:any) => {
                         <button id={'button'} onClick={() => setLike(!like)}>
                             {like ?  <LikeButtonClick color={'#fed53d'} /> : <LikeButton/>}
                         </button>
-
-
                     </div>
                 </div>
             </div>

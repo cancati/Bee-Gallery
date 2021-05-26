@@ -13,7 +13,7 @@ const SignUp = () => {
     const [passwordConfirm, setPasswordConfirm] = useState<string>('');
     const [error, setError] = useState('');
     const history = useHistory()
-    const {signUp } = useAuth();
+    const {signUp,widthSize } = useAuth();
 
     const handleSubmit =  async () => {
         if (password !== passwordConfirm) {
@@ -37,13 +37,13 @@ const SignUp = () => {
                 className="d-flex w-100 align-items-center justify-content-center"
                 style={{ minHeight: "100vh" }}>
 
-                <div className={'w-75'} style={{display:'flex',backgroundColor:'#f1a167',padding:20,justifyContent:'space-between',alignContent:'space-between',borderRadius:20,}}>
-                    <div className={"w-100"} style={{ maxWidth: "400px",backgroundColor:'#fed53d',backgroundSize:'cover' ,borderRadius:20,marginRight:20 ,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <div className={'w-75'} style={{display:'flex',backgroundColor:'#f1a167',padding:20,flexDirection:widthSize <= 800 ? 'column' : 'row',justifyContent:'space-between',alignContent:'space-between',borderRadius:20,}}>
+                    <div className={"w-100"} style={{ maxWidth: "400px",minHeight:100,backgroundColor:'#fed53d',backgroundSize:'cover' ,borderRadius:20,marginRight:20 ,display:'flex',justifyContent:'center',alignItems:'center'}}>
                         <div style={{width:'50%',height:'50%',borderRadius:'100%',backgroundColor:'fed53d',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                            <img src={beeLogo} style={{width:100,height:100}} />
+                            <img src={beeLogo} style={{width:widthSize <= 800 ? 50 : 100,height:widthSize <= 800 ? 50 : 100}} />
                         </div>
                     </div>
-                    <div className={"w-100"} style={{ maxWidth: 400,minWidth:300 }}>
+                    <div className={"w-100"} style={{ maxWidth: 400,minWidth:300,marginTop:widthSize <= 800 ? 10 : 0 }}>
                         <Card style={{borderRadius:20,padding:20,borderWidth:0}}>
                             <Card.Body>
                                 <h2 className={'text-center mb-4'}>Sign Up</h2>
@@ -84,6 +84,10 @@ const SignUp = () => {
                     </div>
                 </div>
             </Container>
+
+            <div className={'position-sticky font-weight-bolder'} style={{fontSize:20,display:'flex',justifyContent:'center',alignItems:'center',borderRadius:30,backgroundColor:'transparent',left:'auto',bottom: 20}}>
+                Created by Can Cati
+            </div>
         </div>
 
     );
