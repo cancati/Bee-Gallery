@@ -41,7 +41,7 @@ const Login = () => {
                             <img src={beeLogo} style={{width:widthSize <= 800 ? 50 : 100,height:widthSize <= 800 ? 50 : 100}} />
                         </div>
                     </div>
-                    <div className={"w-100"} style={{ maxWidth: 400,minWidth:300,marginTop:widthSize <= 800 ? 10 : 0 }}>
+                    <div className={"w-100"} style={{ maxWidth: 400,marginTop:widthSize <= 800 ? 10 : 0 }}>
                         <Card style={{borderRadius:20,padding:20,borderWidth:3,borderColor:'#f1a167'}}>
                             <Card.Body >
                                 <h2 className={'text-center mb-4'}>Login</h2>
@@ -78,7 +78,7 @@ const Login = () => {
                 </div>
             </Container>
 
-            <div className={'position-sticky font-weight-bolder'} style={{fontSize:20,display:'flex',justifyContent:'center',alignItems:'center',borderRadius:30,backgroundColor:'transparent',left:'auto',bottom: 20}}>
+            <div className={'position-fixed font-weight-bolder'} style={{width:'100%',fontSize:20,display:'flex',justifyContent:'center',alignItems:'center',borderRadius:30,backgroundColor:'transparent',bottom: 60}}>
                    Created by Can Cati
                 </div>
 
