@@ -39,7 +39,7 @@ const NavBar:React.FunctionComponent<props> = (user:any) => {
     return (
         <div style={{width:scrollY <= 50 ? '100%' : '50%',minWidth:400,top: scrollY <= 50 ? 0 : window.innerHeight -100,display:'flex',flexDirection:'row',justifyContent:'space-between', backgroundColor:'#fed53d',height:90,transition: scrollY <= 50 ? '1s' : '1s',left:0,right:0,zIndex:2,margin:"auto",borderTopLeftRadius:scrollY <= 50 ? 0 : 30,borderTopRightRadius:scrollY <= 50 ? 0 : 30 ,borderBottomLeftRadius: scrollY <= 50 ? 0 : 30,borderBottomRightRadius: scrollY <= 50 ? 0 : 30,}}
              className={'position-sticky '}>
-            <Link style={{width:'10%',display:'flex',justifyContent:'flex-start',alignItems:'flex-start',paddingLeft:20}} to={'/HomePage'}>
+            <Link style={{width:'10%',display:'flex',justifyContent:'flex-start',alignItems:'flex-start',paddingLeft:20}} to={'/About'}>
                 <div style={{width:'100%',display:'flex',marginTop:scrollY <= 50 ? 15 : 0,flexDirection:'column',borderRadius:scrollY <= 50 ? 0 : 30 ,transition: scrollY <= 50 ? '1s' : '1s',justifyContent:'center',alignItems:'center',height:'100%'}}>
                     <div><img src={BeeLogo} style={{width:32,height:32}}/></div>
                     {scrollY <= 50 ?   <div style={{fontSize:15,marginTop:5 ,color:'black'}}>{currentUser.email.split('@')[0]}</div> : null }
