@@ -35,7 +35,7 @@ const NavBar:React.FunctionComponent<props> = (user:any) => {
             <Link style={{width:'10%',display:'flex',justifyContent:'flex-start',alignItems:'flex-start',paddingLeft:20}} to={'/HomePage'}>
                 <div style={{width:'100%',display:'flex',borderRadius:scrollY <= 50 ? 0 : 30 ,transition: scrollY <= 50 ? '1s' : '1s',justifyContent:'center',alignItems:'center',height:'100%'}}>
                     <div><img src={BeeLogo} style={{width:32,height:32}}/></div>
-                    {scrollY <= 50 ?   <div style={{fontSize:15,marginTop:5 ,color:'black'}}>{currentUser.email.split('@')[0]}</div> : null }
+
                 </div>
             </Link>
 

@@ -41,7 +41,7 @@ export function AuthProvider({ children }: Props) {
     useEffect(() => {
         fetch(`https://api.pexels.com/v1/search?query=${category}&per_page=80`,{
             headers: {
-                Authorization: "563492ad6f91700001000001a6215ceca5e849eba820a33d3df44f2b"
+                Authorization: "563492ad6f9170000100000153d775d742e94b5dab0d57af7da7d438"
             }
         }).then(resp => resp.json()
         )
@@ -54,7 +54,7 @@ export function AuthProvider({ children }: Props) {
         async  function fetchMyAPI() {
             let response = await fetch(`https://api.pexels.com/v1/search?query=${category}&per_page=80`,{
                 headers: {
-                    Authorization: "563492ad6f91700001000001a6215ceca5e849eba820a33d3df44f2b"
+                    Authorization: "563492ad6f9170000100000153d775d742e94b5dab0d57af7da7d438"
                 }
             }).then(resp => resp.json()
             ).then(data => {
